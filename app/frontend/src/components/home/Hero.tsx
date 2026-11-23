@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import portrait from '../../assets/profile.jpg';
 import { useLanguage } from '../../context/LanguageContext';
 import { profileData } from '../../data/profile';
 import { ExtLink } from '../ui/ExtLink';
+import { Section } from '../ui/Section';
 
 export const Hero: React.FC = () => {
   const { language, t } = useLanguage();
   const { socials } = profileData;
+  const [imageFailed, setImageFailed] = useState(false);
 
   const links = [
     { label: 'Google Scholar', href: socials.google_scholar },
@@ -18,6 +21,7 @@ export const Hero: React.FC = () => {
   ];
 
   return (
+    <>
     <section id="home" aria-labelledby="home-title">
       <div className="mx-auto grid max-w-6xl gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-24 sm:pt-20 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-20">
         <div>
@@ -70,13 +74,24 @@ export const Hero: React.FC = () => {
         </div>
 
         <figure className="settle max-w-[17rem] lg:max-w-none" style={{ '--i': 2 } as React.CSSProperties}>
-          <img
-            src="./profile.jpg"
-            width={576}
-            height={576}
-            alt={language === 'es' ? `Retrato de ${profileData.name}` : `Portrait of ${profileData.name}`}
-            className="aspect-[4/5] w-full rounded-[2px] border border-rule object-cover object-top"
-          />
+          {imageFailed ? (
+            <div
+              role="img"
+              aria-label={profileData.name}
+              className="flex aspect-[4/5] w-full items-center justify-center rounded-lg border border-rule bg-paper-sunk font-serif text-6xl text-ink-muted"
+            >
+              JC
+            </div>
+          ) : (
+            <img
+              src={portrait}
+              width={576}
+              height={576}
+              alt={language === 'es' ? `Retrato de ${profileData.name}` : `Portrait of ${profileData.name}`}
+              onError={() => setImageFailed(true)}
+              className="aspect-[4/5] w-full rounded-lg border border-rule object-cover object-top"
+            />
+          )}
           <figcaption className="ui mt-3 text-xs leading-relaxed text-ink-muted">
             {profileData.location}
             <br />
@@ -85,25 +100,23 @@ export const Hero: React.FC = () => {
         </figure>
       </div>
 
-      <div className="border-t border-rule">
-        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:px-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
-          <h2 className="text-xl">{language === 'es' ? 'Resumen' : 'At a glance'}</h2>
-          <dl className="ui min-w-0">
-            {profileData.metrics.map((m) => (
-              <div
-                key={m.id}
-                className="grid gap-x-8 gap-y-1 border-b border-rule py-3.5 first:pt-0 last:border-0 sm:grid-cols-[13rem_minmax(0,1fr)]"
-              >
-                <dt className="text-sm text-ink-muted">{t(m.label)}</dt>
-                <dd className="text-[0.9375rem]">
-                  <span className="figures font-semibold">{m.value}</span>
-                  <span className="text-ink-muted">. {t(m.detail)}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </div>
     </section>
+    <Section id="glance" title={language === 'es' ? 'Resumen' : 'At a glance'}>
+      <dl className="ui min-w-0">
+        {profileData.metrics.map((m) => (
+          <div
+            key={m.id}
+            className="grid gap-x-8 gap-y-1 border-b border-rule py-3.5 first:pt-0 last:border-0 sm:grid-cols-[13rem_minmax(0,1fr)]"
+          >
+            <dt className="text-sm text-ink-muted">{t(m.label)}</dt>
+            <dd className="text-[0.9375rem]">
+              <span className="figures font-semibold">{m.value}</span>
+              <span className="text-ink-muted">. {t(m.detail)}</span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
+    </>
   );
 };

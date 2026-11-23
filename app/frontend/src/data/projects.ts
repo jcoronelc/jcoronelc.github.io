@@ -257,9 +257,9 @@ export const projectsData: ProjectCaseStudy[] = [
     }
   },
   {
-    id: "hotellytics",
-    slug: "hotellytics",
-    title: "Hotellytics — Hospitality Market Intelligence",
+    id: "hotelio",
+    slug: "hotelio",
+    title: "Hotelio — Hospitality Market Intelligence",
     subtitle: {
       en: "Automated Rate Parity & Review Sentiment Platform",
       es: "Plataforma de Paridad Tarifaria y Sentimiento de Reseñas Hoteleras"
@@ -277,8 +277,8 @@ export const projectsData: ProjectCaseStudy[] = [
       es: "Scraping y auditoría diaria de tarifas para 92 hoteles; análisis de sentimiento en más de 2.200 reseñas de huéspedes."
     },
     overview: {
-      en: "Hotellytics is an intelligence dashboard for revenue managers, orchestrating daily extraction of Online Travel Agency (OTA) pricing, room availability, and guest sentiment analytics.",
-      es: "Hotellytics es un tablero de inteligencia para revenue managers que orquesta la extracción diaria de precios en agencias de viaje online (OTAs), disponibilidad de habitaciones y análisis de sentimiento."
+      en: "Hotelio is an intelligence dashboard for revenue managers, orchestrating daily extraction of Online Travel Agency (OTA) pricing, room availability, and guest sentiment analytics.",
+      es: "Hotelio es un tablero de inteligencia para revenue managers que orquesta la extracción diaria de precios en agencias de viaje online (OTAs), disponibilidad de habitaciones y análisis de sentimiento."
     },
     problem: {
       en: "Hotels lose significant revenue due to undetected OTA rate disparities and slow reaction to negative guest feedback across fragmented booking channels.",

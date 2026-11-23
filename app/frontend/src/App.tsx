@@ -16,13 +16,14 @@ import { ContactSection } from './components/home/ContactSection';
 
 const SECTION_IDS = [
   'home',
+  'glance',
   'about',
+  'education',
   'research',
   'publications',
   'projects',
-  'ventures',
   'experience',
-  'education',
+  'ventures',
   'skills',
   'contact',
 ];
@@ -65,12 +66,12 @@ export const AppContent: React.FC = () => {
       <main className="flex-1">
         <Hero />
         <AboutSection />
+        <EducationSection />
         <ResearchSection />
         <PublicationsSection />
         <ProjectsSection />
-        <VenturesSection />
         <ExperienceSection />
-        <EducationSection />
+        <VenturesSection />
         <SkillsSection />
         <ContactSection />
       </main>

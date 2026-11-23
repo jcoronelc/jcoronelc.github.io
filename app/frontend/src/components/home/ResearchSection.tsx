@@ -12,8 +12,8 @@ export const ResearchSection: React.FC = () => {
       title={language === 'es' ? 'Líneas de investigación' : 'Research'}
       intro={
         language === 'es'
-          ? 'Cinco líneas activas, cada una con las preguntas abiertas que la guían.'
-          : 'Five active lines of work, each with the open questions that drive it.'
+          ? 'Tres líneas activas, cada una con las preguntas abiertas que la guían.'
+          : 'Three active lines of work, each with the open questions that drive it.'
       }
     >
       <div>

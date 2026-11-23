@@ -9,12 +9,12 @@ interface NavbarProps {
 
 const navItems = [
   { id: 'about', label: { en: 'About', es: 'Perfil' } },
+  { id: 'education', label: { en: 'Education', es: 'Formación' } },
   { id: 'research', label: { en: 'Research', es: 'Investigación' } },
   { id: 'publications', label: { en: 'Publications', es: 'Publicaciones' } },
   { id: 'projects', label: { en: 'Projects', es: 'Proyectos' } },
-  { id: 'ventures', label: { en: 'Ventures', es: 'Emprendimiento' } },
   { id: 'experience', label: { en: 'Experience', es: 'Experiencia' } },
-  { id: 'education', label: { en: 'Education', es: 'Formación' } },
+  { id: 'ventures', label: { en: 'Ventures', es: 'Emprendimiento' } },
   { id: 'contact', label: { en: 'Contact', es: 'Contacto' } },
 ];
 
@@ -29,12 +29,31 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { id: 'system' as const, icon: Monitor, label: language === 'es' ? 'Tema del sistema' : 'System theme' },
   ];
 
+  const themeGroup = (
+          <div role="group" aria-label={language === 'es' ? 'Apariencia' : 'Appearance'} className="flex rounded-sm border border-rule">
+            {themeOptions.map(({ id, icon: Icon, label }) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setTheme(id)}
+                aria-pressed={theme === id}
+                aria-label={label}
+                title={label}
+                className={`p-1.5 transition-colors ${
+                  theme === id ? 'bg-paper-sunk text-ink' : 'text-ink-muted hover:text-ink'
+                }`}
+              >
+                <Icon className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden="true" />
+              </button>
+            ))}
+          </div>
+  );
+
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-paper">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-6 px-5 sm:px-8">
-        <a href="#home" className="whitespace-nowrap font-serif text-[1.05rem] font-semibold tracking-tight text-ink">
-          <span className="sm:hidden">J. Coronel</span>
-          <span className="hidden sm:inline">J. J. Coronel Crespo</span>
+        <a href="#home" className="whitespace-nowrap font-serif text-[0.95rem] font-semibold tracking-tight text-ink sm:text-[1.05rem]">
+          Juan José Coronel Crespo
         </a>
 
         <nav aria-label={language === 'es' ? 'Secciones' : 'Sections'} className="ui hidden items-center gap-5 xl:flex">
@@ -75,23 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             ))}
           </div>
 
-          <div role="group" aria-label={language === 'es' ? 'Apariencia' : 'Appearance'} className="flex rounded-sm border border-rule">
-            {themeOptions.map(({ id, icon: Icon, label }) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => setTheme(id)}
-                aria-pressed={theme === id}
-                aria-label={label}
-                title={label}
-                className={`p-1.5 transition-colors ${
-                  theme === id ? 'bg-paper-sunk text-ink' : 'text-ink-muted hover:text-ink'
-                }`}
-              >
-                <Icon className="h-3.5 w-3.5" strokeWidth={1.75} aria-hidden="true" />
-              </button>
-            ))}
-          </div>
+          <div className="hidden sm:block">{themeGroup}</div>
 
           <button
             type="button"
@@ -124,6 +127,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               </li>
             ))}
           </ul>
+          <div className="mx-auto flex max-w-6xl items-center justify-between border-t border-rule px-5 py-3 sm:hidden">
+            <span className="text-sm text-ink-muted">{language === 'es' ? 'Apariencia' : 'Appearance'}</span>
+            {themeGroup}
+          </div>
         </nav>
       )}
     </header>

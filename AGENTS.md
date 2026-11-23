@@ -100,7 +100,7 @@ personal-website-app/            ← Workspace root (Trace2Spec + git)
             ├── data/            ← Single source of truth for all website content (EASY DATA UPDATES)
             │   ├── types.ts             ← Strict TypeScript interfaces for all data models
             │   ├── profile.ts           ← Name, headlines, narrative bio, and verified metrics
-            │   ├── research.ts          ← 5 Research lines and core scientific inquiry questions
+            │   ├── research.ts          ← 3 Research lines and core scientific inquiry questions
             │   ├── publications.ts      ← 5 Papers with status tags, venue, and full BibTeX
             │   ├── projects.ts          ← Flagship case studies (T2S, D2M, Admitto, NEXO, etc.)
             │   ├── experience.ts        ← Professional & academic timeline
@@ -114,7 +114,7 @@ personal-website-app/            ← Workspace root (Trace2Spec + git)
                 ├── home/
                 │   ├── Hero.tsx         ← Editorial headline, photo card, and 6 verified metrics
                 │   ├── AboutSection.tsx ← Narrative bio and engineering philosophy
-                │   ├── ResearchSection.tsx     ← 5 Research pillars with questions and keywords
+                │   ├── ResearchSection.tsx     ← 3 Research lines with questions and keywords
                 │   ├── PublicationsSection.tsx ← Filterable paper catalog with BibTeX & DOI links
                 │   ├── ProjectsSection.tsx     ← Categorized projects with case study modal trigger
                 │   ├── ExperienceSection.tsx   ← Chronological career timeline

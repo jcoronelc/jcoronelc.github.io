@@ -3,8 +3,8 @@ import { ProfileData } from './types';
 export const profileData: ProfileData = {
   name: "Juan José Coronel Crespo",
   headline: {
-    en: "AI Research Engineer | Systems Builder",
-    es: "Investigador en IA e Ingeniero de Sistemas"
+    en: "AI Engineer | Agentic AI & LLM Systems | Data Engineering",
+    es: "Ingeniero de IA | IA Agéntica y Sistemas LLM | Ingeniería de Datos"
   },
   currentRoles: {
     en: [
