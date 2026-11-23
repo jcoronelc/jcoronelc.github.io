@@ -32,8 +32,8 @@ export const profileData: ProfileData = {
     es: "Construyendo sistemas inteligentes en la intersección de la investigación en IA, ingeniería de software y datos."
   },
   shortBio: {
-    en: "Computer Science Engineer (1st in class, rank 1/21) & applied AI researcher with 5 scientific publications. Creator of agentic and DataOps frameworks that compress weeks of manual work into seconds with 100% mathematical parity.",
-    es: "Ingeniero en Ciencias de la Computación (1.er puesto de promoción, 1/21) e investigador en IA con 5 trabajos científicos. Creador de marcos agénticos y de DataOps que reducen semanas de trabajo a segundos con paridad matemática del 100%."
+    en: "Computer Science Engineer (1st in class, rank 1/21) & applied AI researcher with 5 scientific publications. Creator of traceable software and DataOps frameworks.",
+    es: "Ingeniero en Ciencias de la Computación (1.er puesto de promoción, 1/21) e investigador en IA con 5 trabajos científicos. Creador de marcos de software trazable y de DataOps."
   },
   narrativeBio: {
     en: [
