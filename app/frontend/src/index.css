@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by the .dark class on <html> (ThemeContext), not only by the OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Design tokens. Components consume semantic names (bg-paper, text-ink, border-rule)
+  so light and dark are defined once, here.
+*/
+:root {
+  --paper: #f8f6f1;
+  --paper-sunk: #efece4;
+  --ink: #1c1b19;
+  --ink-muted: #5a574f;
+  --rule: #d8d4c8;
+  --rule-strong: #b9b4a5;
+  --accent: #1b3a63;
+  --accent-strong: #112848;
+  --accent-wash: #e6ebf3;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #151618;
+  --paper-sunk: #1d1e21;
+  --ink: #e9e6de;
+  --ink-muted: #a29e94;
+  --rule: #2c2d31;
+  --rule-strong: #46474d;
+  --accent: #9dbbe6;
+  --accent-strong: #c3d6f2;
+  --accent-wash: #1f2a3a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-sunk: var(--paper-sunk);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-wash: var(--accent-wash);
+
+  --font-serif: 'Source Serif 4', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    font-optical-sizing: auto;
+    font-feature-settings: 'kern', 'liga', 'onum';
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  /* Data that must align in columns uses lining, tabular figures. */
+  .figures {
+    font-feature-settings: 'lnum', 'tnum';
+  }
+
+  /* Browser surfaces themed from the palette. */
+  ::selection {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  input, button, select, textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rule-strong);
+  border-radius: 9999px;
+  border: 3px solid var(--paper);
+}
+
+/* Prose links: underlined at rest, accent on hover. */
+.link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  transition: color 160ms cubic-bezier(0.16, 1, 0.3, 1), text-decoration-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* Small interface text (labels, controls, metadata) uses the sans. */
+.ui {
+  font-family: var(--font-sans);
+  font-feature-settings: 'tnum', 'cv11';
+}
+
+/* The one authored motion: the opening of the page settles in once. */
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.settle {
+  animation: settle 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+/* Disclosure panels expand without layout jump. */
+.disclosure {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.disclosure[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+.disclosure > div {
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .settle {
+    animation: none;
+  }
+  .disclosure {
+    transition: none;
+  }
+}
+
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
