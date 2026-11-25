@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import portrait from '../../assets/profile.jpg';
+import portraitWebp from '../../assets/profile.webp';
 import { useLanguage } from '../../context/LanguageContext';
 import { profileData } from '../../data/profile';
 import { ExtLink } from '../ui/ExtLink';
@@ -83,14 +84,19 @@ export const Hero: React.FC = () => {
               JC
             </div>
           ) : (
-            <img
-              src={portrait}
-              width={576}
-              height={576}
-              alt={language === 'es' ? `Retrato de ${profileData.name}` : `Portrait of ${profileData.name}`}
-              onError={() => setImageFailed(true)}
-              className="aspect-[4/5] w-full rounded-lg border border-rule object-cover object-top"
-            />
+            <picture>
+              <source srcSet={portraitWebp} type="image/webp" />
+              <img
+                src={portrait}
+                width={576}
+                height={576}
+                alt={language === 'es' ? `Retrato de ${profileData.name}` : `Portrait of ${profileData.name}`}
+                fetchPriority="high"
+                decoding="async"
+                onError={() => setImageFailed(true)}
+                className="aspect-[4/5] w-full rounded-lg border border-rule object-cover object-top"
+              />
+            </picture>
           )}
           <figcaption className="ui mt-3 text-xs leading-relaxed text-ink-muted">
             {profileData.location}

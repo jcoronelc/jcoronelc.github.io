@@ -10,8 +10,14 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLanguage?: Language }> = ({
+  children,
+  initialLanguage,
+}) => {
   const [language, setLanguageState] = useState<Language>(() => {
+    if (initialLanguage) return initialLanguage;
+    if (typeof window === 'undefined') return 'en';
+    if (window.location.pathname.startsWith('/es')) return 'es';
     const saved = localStorage.getItem('site_lang');
     if (saved === 'en' || saved === 'es') return saved;
     return 'en'; // English is primary by specification

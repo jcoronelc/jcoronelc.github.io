@@ -1,0 +1,26 @@
+# Juan José Coronel Crespo
+
+> AI Engineer & Research Leader at DTIC, Universidad de Cuenca, and M.Sc. Student in Artificial Intelligence at Yachay Tech University (Ecuador).
+
+- Canonical URL (EN): https://jcoronelc.github.io/
+- Canonical URL (ES): https://jcoronelc.github.io/es/
+- ORCID: https://orcid.org/0009-0009-7461-1473
+- Google Scholar: https://scholar.google.com/citations?user=IPXTv_oAAAAJ&hl=es
+- GitHub: https://github.com/jcoronelc
+- LinkedIn: https://www.linkedin.com/in/juan-coronelc/
+- Email: juan.coronel@ucuenca.edu.ec
+
+## Summary
+Juan José Coronel Crespo is a Computer Science Engineer (Valedictorian, Rank 1/21, GPA 88.98/100 at Universidad de Cuenca) specializing in Multi-Agent Systems, Specification-Driven Development (SDD), and Verifiable DataOps. He co-authored 5 scientific publications (Springer LNNS, CIMPS 2026, LACLO 2026 3rd Place Award, and preprints) and leads applied AI systems deployed for 16,500+ institutional users.
+
+## Flagship Systems & Frameworks
+- **Trace2Spec (T2S)**: Specification-driven framework for AI-assisted software development using the V-Bounce verification cycle, enforcing bidirectional traceability between requirements, specs, agent code, and tests (98.7% QA pass rate across 159 test cases).
+- **Data2Model (D2M)**: Autonomous multi-agent DataOps framework for end-to-end data mart generation and deterministic mathematical parity auditing (reduced migration validation from 8–10 weeks to 2.5 seconds with 100% parity).
+- **Admitto**: Institutional university admissions platform processing 16,500+ applicants in production.
+
+## Scientific Publications (5)
+1. *Disruptive Innovation: A Systematic Review of the Impact of Generative Artificial Intelligence (AI) on Cybersecurity* — Springer LNNS, vol. 181–206, 2026. DOI: https://doi.org/10.1007/978-3-031-98768-7_11
+2. *A Semantic Evaluation Framework for Digital Competence in University Syllabi using LLMs and Adaptive Weighting* — LACLO 2026 (Third Place Award), Rio de Janeiro, Brazil.
+3. *Traceable by Design: A Specification-Driven Framework for AI-Assisted Software Development* — CIMPS 2026 (Accepted / In Press).
+4. *Position Paper: Multi-Agent AutoML for Generating Auditable and Explainable Pipelines* — Preprint, 2026.
+5. *Data2Model: An Autonomous Multi-Agent Framework for End-to-End Data Mart Generation* — Under Review, 2026.

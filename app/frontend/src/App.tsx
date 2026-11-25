@@ -81,10 +81,12 @@ export const AppContent: React.FC = () => {
   );
 };
 
-export function App() {
+import { Language } from './data/types';
+
+export function App({ initialLanguage }: { initialLanguage?: Language } = {}) {
   return (
     <ThemeProvider>
-      <LanguageProvider>
+      <LanguageProvider initialLanguage={initialLanguage}>
         <AppContent />
       </LanguageProvider>
     </ThemeProvider>
